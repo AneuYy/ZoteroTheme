@@ -1,7 +1,7 @@
-import { AddonBase } from "./base";
+import { AddonBase, Theme } from "./base";
 
 class AddonEvents extends AddonBase {
-  constructor(parent: Theme) {
+  constructor(parent: ZoteroTheme) {
     super(parent);
   }
 
@@ -11,8 +11,22 @@ class AddonEvents extends AddonBase {
     this.resetState();
   }
 
-  private resetState(): void {
+  private resetState(force: boolean = false): void {
     // Reset preferrence state.
+    let currentTheme = Zotero.Prefs.get("ZoteroTheme.currentTheme");
+    if (typeof currentTheme === "undefined" || force) {
+      currentTheme = this._ZoteroTheme.config.defaultThemes[0].name;
+      Zotero.Prefs.set("ZoteroTheme.currentTheme", currentTheme);
+    }
+
+    let themes = Zotero.Prefs.get("ZoteroTheme.themes");
+    if (typeof themes === "undefined" || force) {
+      themes = {};
+      Zotero.Prefs.set("ZoteroTheme.themes", JSON.stringify(themes));
+      for (let theme of this._ZoteroTheme.config.defaultThemes) {
+        theme.save();
+      }
+    }
   }
 }
 

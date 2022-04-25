@@ -3,7 +3,7 @@ import { AddonBase } from "./base";
 class AddonViews extends AddonBase {
   progressWindowIcon: object;
 
-  constructor(parent: Theme) {
+  constructor(parent: ZoteroTheme) {
     super(parent);
     this.progressWindowIcon = {
       success: "chrome://zotero/skin/tick.png",

@@ -127,7 +127,7 @@ declare const Zotero: {
     set: (key: string, value: any) => any;
   };
   Reader: Reader;
-  ZoteroTheme: import("../src/Theme");
+  ZoteroTheme: import("../src/ZotreroTheme");
 };
 
 declare const ZoteroPane: {

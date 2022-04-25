@@ -1,6 +1,6 @@
-import Theme from "./Theme";
+import ZoteroTheme from "./ZotreroTheme";
 
-Zotero.ZoteroTheme = new Theme();
+Zotero.ZoteroTheme = new ZoteroTheme();
 
 window.addEventListener(
   "load",
