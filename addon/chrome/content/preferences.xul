@@ -3,7 +3,7 @@
 
 <overlay id="__addonRef__-preferences" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml">
   <prefwindow id="zotero-prefs">
-    <prefpane id="zotero-prefpane-__addonRef__" insertafter="zotero-prefpane-advanced" label="Theme" image="chrome://__addonRef__/skin/favicon.png" onpaneload="Zotero.ZoteroTheme.prefs.initPreferences(document)">
+    <prefpane id="zotero-prefpane-__addonRef__" insertafter="zotero-prefpane-advanced" label="Theme" image="chrome://__addonRef__/skin/favicon.png" onpaneload="Zotero.ZoteroTheme.prefs.initPreferences(window)">
       <preferences id="zotero-preferences-__addonRef__">
         <preference id="pref-__addonRef__-currentTheme" name="extensions.zotero.ZoteroTheme.currentTheme" type="string" />
         <preference id="pref-__addonRef__-themes" name="extensions.zotero.ZoteroTheme.themes" type="string" />

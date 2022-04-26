@@ -2,9 +2,13 @@ import { AddonBase, Theme } from "./base";
 
 class AddonConfig extends AddonBase {
   defaultThemes: Theme[];
+  templates: object;
   themeLocale: object;
   constructor(parent: ZoteroTheme) {
     super(parent);
+    this.templates = {
+      win: "",
+    };
     this.defaultThemes = [
       new Theme(
         "dark",
@@ -16,7 +20,7 @@ class AddonConfig extends AddonBase {
           bgItemHover: "#ffffff",
           bgItemSelected: "#ffffff",
         },
-        ""
+        "win"
       ),
       new Theme(
         "default",

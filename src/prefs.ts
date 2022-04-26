@@ -1,13 +1,13 @@
 import { AddonBase, Theme } from "./base";
 
 class AddonPrefs extends AddonBase {
-  private _document: Document;
+  private _window: Window;
   constructor(parent: ZoteroTheme) {
     super(parent);
   }
 
-  initPreferences(_document: Document) {
-    this._document = _document;
+  initPreferences(_window: Window) {
+    this._window = _window;
     Zotero.debug("ZoteroTheme: Initialize preferences.");
     this.buildThemesMenulist();
     this.updateThemeEditor();
@@ -15,6 +15,7 @@ class AddonPrefs extends AddonBase {
 
   createTheme() {
     let name = prompt("Enter new theme name", "");
+    this._window.focus()
     let currentNames = this._ZoteroTheme.config.getThemeNames();
     if (!name || name in currentNames) {
       return;
@@ -55,16 +56,16 @@ class AddonPrefs extends AddonBase {
     let currentThemeName: string = Zotero.Prefs.get("ZoteroTheme.currentTheme");
     let themeNames: string[] = this._ZoteroTheme.config.getThemeNames();
 
-    let menulist: XUL.Menulist = this._document.getElementById(
+    let menulist: XUL.Menulist = this._window.document.getElementById(
       "zotero-prefpane-ZoteroTheme-themeeditor-themesmenulist"
     );
     menulist.innerHTML = "";
-    let menupopup = this._document.createElement("menupopup");
+    let menupopup = this._window.document.createElement("menupopup");
     let selectedIndex = 0;
 
     let i = 0;
     for (let name of themeNames) {
-      let menuitem = this._document.createElement("menuitem");
+      let menuitem = this._window.document.createElement("menuitem");
       menuitem.setAttribute("label", name);
       menuitem.setAttribute("value", name);
       menuitem.addEventListener("command", (e: XULEvent) => {
@@ -84,7 +85,7 @@ class AddonPrefs extends AddonBase {
 
   private updateThemeEditor() {
     let currentTheme: Theme = this._ZoteroTheme.config.getCurrentTheme();
-    let rows = this._document.getElementById(
+    let rows = this._window.document.getElementById(
       "zotero-prefpane-ZoteroTheme-themeeditor-rows"
     );
     if (!rows) {
@@ -96,8 +97,8 @@ class AddonPrefs extends AddonBase {
       let isColor = this._ZoteroTheme.config.isColor(
         currentTheme.get(settingName)
       );
-      let row = this._document.createElement("row");
-      let settingElement = this._document.createElement("textbox");
+      let row = this._window.document.createElement("row");
+      let settingElement = this._window.document.createElement("textbox");
       settingElement.setAttribute(
         "id",
         `zotero-prefpane-ZoteroTheme-themeeditor-${settingName}`
@@ -111,7 +112,7 @@ class AddonPrefs extends AddonBase {
       });
       if (isColor) {
         settingElement.addEventListener("click", (inputEvent: XULEvent) => {
-          let colorpicker: XUL.Element = this._document.getElementById(
+          let colorpicker: XUL.Element = this._window.document.getElementById(
             "zotero-prefpane-ZoteroTheme-themeeditor-colorpicker"
           );
           colorpicker.value = inputEvent.target.value;
@@ -124,7 +125,7 @@ class AddonPrefs extends AddonBase {
         });
       }
 
-      let label = this._document.createElement("label");
+      let label = this._window.document.createElement("label");
       label.setAttribute(
         "value",
         this._ZoteroTheme.config.getThemeSettingLocale(settingName)

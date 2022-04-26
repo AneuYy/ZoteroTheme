@@ -1,4 +1,4 @@
-import { AddonBase, Theme } from "./base";
+import { AddonBase } from "./base";
 
 class AddonEvents extends AddonBase {
   constructor(parent: ZoteroTheme) {
