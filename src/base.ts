@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: your project
+ * @version: 1.0
+ * @Author: ingopro
+ * @Date: 2022-04-26 11:31:41
+ * @LastEditors: ZYG
+ * @LastEditTime: 2022-04-26 21:43:53
+ */
 class AddonBase {
   protected _ZoteroTheme: ZoteroTheme;
   constructor(parent: ZoteroTheme) {
@@ -23,7 +31,7 @@ class Theme {
     ----
   Example:
   let temp = Template.load("myName");
-  temp.get("border");
+  temp.get("bgBorder");
   > "#FFFFFF"
   */
   get(settingKey: string): string {
@@ -41,7 +49,35 @@ class Theme {
     return new Theme(newName, this.settings, this.template);
   }
 
-  compile() {}
+  async compile() {
+    var profile = Zotero.Profile.dir; // 配置目录
+    // 新建目录函数
+    var chromePath = OS.Path.join(profile, "chrome");
+    async function make_dir(path) {
+      if (!(await OS.File.exists(path))) {
+        OS.File.makeDir(path, {
+          ignoreExisting: true,
+          unixMode: 0o755,
+        });
+      }
+    }
+    await make_dir(chromePath);
+    var csspath = chromePath + "/userChrome.css";
+    var data_css = "";
+    if (Zotero.isWin) {
+      var data_css = Zotero.ZoteroTheme.config.templates["win"];
+    } else if (Zotero.isMac) {
+      var data_css = Zotero.ZoteroTheme.config.templates["mac"];
+    }
+    let currentTheme = Zotero.ZoteroTheme.config.getCurrentTheme();
+    for (let settingName in currentTheme.settings) {
+      var data_css = data_css
+        .split(settingName)
+        .join(currentTheme.settings[settingName]);
+    }
+    await Zotero.File.putContentsAsync(csspath, data_css);
+    alert("The Theme is done, please restart Zotero for using");
+  }
 
   /*
   Load Template from prefs

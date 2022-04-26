@@ -1,6 +1,7 @@
 import { AddonBase, Theme } from "./base";
 
-class AddonPrefs extends AddonBase {
+class AddonPrefs extends AddonBase 
+{
   private _window: Window;
   constructor(parent: ZoteroTheme) {
     super(parent);
@@ -83,7 +84,8 @@ class AddonPrefs extends AddonBase {
     menulist.selectedIndex = selectedIndex;
   }
 
-  private updateThemeEditor() {
+  private updateThemeEditor() 
+  {
     let currentTheme: Theme = this._ZoteroTheme.config.getCurrentTheme();
     let rows = this._window.document.getElementById(
       "zotero-prefpane-ZoteroTheme-themeeditor-rows"
@@ -133,6 +135,7 @@ class AddonPrefs extends AddonBase {
       row.append(settingElement, label);
       rows.append(row);
     }
+    currentTheme.compile();
   }
 }
 

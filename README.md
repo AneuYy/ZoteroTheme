@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion: your project
+ * @version: 1.0
+ * @Author: ingopro
+ * @Date: 2022-04-24 22:08:23
+ * @LastEditors: ZYG
+ * @LastEditTime: 2022-04-26 12:36:20
+-->
 # ZoteroTheme
 
 Zotero 主题
@@ -6,14 +14,14 @@ Zotero 主题
 
 ## Install
 
-- Download the latest release (.xpi file) from the [Releases Page](https://github.com/windingwind/zotero-pdf-translate/releases)  
+- Download the latest release (.xpi file) from the [Releases Page](https://github.com/iShareStuff/ZoteroTheme/releases)  
   _Note_ If you're using Firefox as your browser, right-click the `.xpi` and select "Save As.."
 - In Zotero click `Tools` in the top menu bar and then click `Addons`
 - Go to the Extensions page and then click the gear icon in the top right.
 - Select `Install Add-on from file`.
 - Browse to where you downloaded the `.xpi` file and select it.
 - Restart Zotero, by clicking `restart now` in the extensions list where the
-  Zotero PDF Translate plugin is now listed.
+  ZoteroTheme plugin is now listed.
 
 ## Usage
 

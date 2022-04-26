@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: your project
+ * @version: 1.0
+ * @Author: ingopro
+ * @Date: 2022-04-26 11:31:41
+ * @LastEditors: ZYG
+ * @LastEditTime: 2022-04-26 16:10:10
+ */
 import { AddonBase } from "./base";
 
 class AddonEvents extends AddonBase {
