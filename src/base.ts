@@ -50,13 +50,13 @@ class Theme {
   }
 
   async compile() {
-    var profile = Zotero.Profile.dir; // 配置目录
-    // 新建目录函数
+    var profile = Zotero.Profile.dir;
     var chromePath = OS.Path.join(profile, "chrome");
     async function make_dir(path) {
       if (!(await OS.File.exists(path))) {
         OS.File.makeDir(path, {
           ignoreExisting: true,
+          // @ts-ignore
           unixMode: 0o755,
         });
       }
@@ -76,7 +76,10 @@ class Theme {
         .join(currentTheme.settings[settingName]);
     }
     await Zotero.File.putContentsAsync(csspath, data_css);
-    alert("The Theme is done, please restart Zotero for using");
+    let doRestart = confirm("Restart Zotero to apply. Restart now?");
+    if (doRestart) {
+      Zotero.Utilities.Internal.quitZotero(true);
+    }
   }
 
   /*

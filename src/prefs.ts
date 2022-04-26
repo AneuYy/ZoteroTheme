@@ -1,7 +1,6 @@
 import { AddonBase, Theme } from "./base";
 
-class AddonPrefs extends AddonBase 
-{
+class AddonPrefs extends AddonBase {
   private _window: Window;
   constructor(parent: ZoteroTheme) {
     super(parent);
@@ -16,7 +15,7 @@ class AddonPrefs extends AddonBase
 
   createTheme() {
     let name = prompt("Enter new theme name", "");
-    this._window.focus()
+    this._window.focus();
     let currentNames = this._ZoteroTheme.config.getThemeNames();
     if (!name || name in currentNames) {
       return;
@@ -29,6 +28,9 @@ class AddonPrefs extends AddonBase
   }
 
   deleteTheme() {
+    if (!confirm("Will delete this theme. Confirm?")) {
+      return;
+    }
     let currentThemeName: string = Zotero.Prefs.get("ZoteroTheme.currentTheme");
     this._ZoteroTheme.config.deleteTheme(currentThemeName);
     let currentNames = this._ZoteroTheme.config.getThemeNames();
@@ -38,8 +40,10 @@ class AddonPrefs extends AddonBase
   }
 
   resetTheme() {
-    let currentThemeName: string = Zotero.Prefs.get("ZoteroTheme.currentTheme");
-    let currentTheme = Theme.load(currentThemeName);
+    if (!confirm("Will reset this theme. Confirm?")) {
+      return;
+    }
+    let currentTheme = this._ZoteroTheme.config.getCurrentTheme();
     for (let _theme of this._ZoteroTheme.config.defaultThemes) {
       if (_theme.name == currentTheme.name) {
         _theme.save();
@@ -51,6 +55,14 @@ class AddonPrefs extends AddonBase
     );
     currentTheme.save();
     this.updateThemeEditor();
+  }
+
+  applyTheme() {
+    if (!confirm("Will apply this theme. Confirm?")) {
+      return;
+    }
+    let currentTheme = this._ZoteroTheme.config.getCurrentTheme();
+    currentTheme.compile();
   }
 
   private buildThemesMenulist() {
@@ -84,8 +96,7 @@ class AddonPrefs extends AddonBase
     menulist.selectedIndex = selectedIndex;
   }
 
-  private updateThemeEditor() 
-  {
+  private updateThemeEditor() {
     let currentTheme: Theme = this._ZoteroTheme.config.getCurrentTheme();
     let rows = this._window.document.getElementById(
       "zotero-prefpane-ZoteroTheme-themeeditor-rows"
@@ -135,7 +146,6 @@ class AddonPrefs extends AddonBase
       row.append(settingElement, label);
       rows.append(row);
     }
-    currentTheme.compile();
   }
 }
 

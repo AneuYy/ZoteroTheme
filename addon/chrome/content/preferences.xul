@@ -24,6 +24,7 @@
                 <button id="zotero-prefpane-__addonRef__-themeeditor-create" label="+" tooltiptext="Create Theme" style="width: 30px; maxWidth: 30px; minWidth: 30px" onclick="Zotero.ZoteroTheme.prefs.createTheme();"></button>
                 <button id="zotero-prefpane-__addonRef__-themeeditor-delete" label="-" tooltiptext="Delete Theme" style="width: 30px; maxWidth: 30px; minWidth: 30px" onclick="Zotero.ZoteroTheme.prefs.deleteTheme();"></button>
                 <button id="zotero-prefpane-__addonRef__-themeeditor-reset" label="↻" tooltiptext="Add Theme" style="width: 30px; maxWidth: 30px; minWidth: 30px" onclick="Zotero.ZoteroTheme.prefs.resetTheme();"></button>
+                <button id="zotero-prefpane-__addonRef__-themeeditor-apply" label="Apply" tooltiptext="Apply Theme" style="width: 30px; maxWidth: 30px; minWidth: 30px" onclick="Zotero.ZoteroTheme.prefs.applyTheme();"></button>
               </row>
               <row>
                 <columns>
