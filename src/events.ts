@@ -1,10 +1,10 @@
 /*
  * @Descripttion: your project
  * @version: 1.0
- * @Author: ingopro
+ * @Author: ShareStuff
  * @Date: 2022-04-26 11:31:41
- * @LastEditors: ZYG
- * @LastEditTime: 2022-04-26 16:10:10
+ * @LastEditors: isharestuff
+ * @LastEditTime: 2022-04-27 10:36:46
  */
 import { AddonBase } from "./base";
 

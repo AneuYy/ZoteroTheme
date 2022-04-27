@@ -1,11 +1,3 @@
-/*
- * @Descripttion: your project
- * @version: 1.0
- * @Author: ingopro
- * @Date: 2022-04-26 11:31:41
- * @LastEditors: ZYG
- * @LastEditTime: 2022-04-27 09:33:59
- */
 class AddonBase {
   protected _ZoteroTheme: ZoteroTheme;
   constructor(parent: ZoteroTheme) {
