@@ -4,7 +4,7 @@
  * @Author: ingopro
  * @Date: 2022-04-26 11:31:41
  * @LastEditors: ZYG
- * @LastEditTime: 2022-04-26 21:43:53
+ * @LastEditTime: 2022-04-27 09:33:59
  */
 class AddonBase {
   protected _ZoteroTheme: ZoteroTheme;
@@ -70,10 +70,18 @@ class Theme {
       var data_css = Zotero.ZoteroTheme.config.templates["mac"];
     }
     let currentTheme = Zotero.ZoteroTheme.config.getCurrentTheme();
+    var numDefault = 0;
+    var numLength = Object.keys(currentTheme.settings).length;
     for (let settingName in currentTheme.settings) {
       var data_css = data_css
         .split(settingName)
         .join(currentTheme.settings[settingName]);
+      if (currentTheme.settings[settingName] == "#ffffff") {
+        numDefault = numDefault + 1;
+      }
+    }
+    if (numDefault == numLength) {
+      var data_css = "";
     }
     await Zotero.File.putContentsAsync(csspath, data_css);
     let doRestart = confirm("Restart Zotero to apply. Restart now?");
