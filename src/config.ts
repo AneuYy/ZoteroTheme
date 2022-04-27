@@ -31,10 +31,12 @@ class AddonConfig extends AddonBase {
         /*鼠标放在标签上时高亮的颜色和背景*/\
         .tag-selector-item:hover { background: bgItemHover !important;\
             color: bgContainer !important; }\
-        /*鼠标左边选择标签后的颜色和背景*/\
+        /*标签默认的颜色和背景*/\
         .tag-selector-item {\
-          background: bgItemSelected !important;\
+          background: bgItemDefault !important;\
         color: bgContainer ; }\
+        /*标签选择的颜色和背景*/\
+        .tag-selector-item.selected{ background: bgItemSelected !important;            color: bgContainer !important; } \
         /*搜索框的背景和字体颜色以及边界颜色*/\
         #zotero-tb-search { -moz-appearance: none !important;\
           background-color: bgItemDefault !important;\
@@ -145,9 +147,9 @@ class AddonConfig extends AddonBase {
         /*信息栏期刊等信息背景色*/\
         #zotero-item-pane-content tabpanel { background: bgItemDefault !important;\
           color: bgContainer !important; }\
-        /*选中标签的背景和颜色*/\
+        /*右侧信息栏选中标签的背景和颜色*/\
         #tags-box-container ul li ul { background: bgItemSelected !important; color: bgContainer !important; }\
-        /*添加标签的背景和颜色*/\
+        /*右侧信息栏添加标签的背景和颜色*/\
         #tags-box-container input { -moz-appearance: none !important;\
           background-color: bgItemSelected !important;\
           color: bgContainer !important;\
@@ -284,8 +286,10 @@ class AddonConfig extends AddonBase {
       .tag-selector-item:hover { background: bgItemHover !important;\
           color:  bgContainer !important; }\
       .tag-selector-item {\
-        background: bgItemSelected !important;\
+        background: bgItemDefault !important;\
       color: bgContainer ; }\
+      /*标签选择的颜色和背景*/\
+      .tag-selector-item.selected{ background: bgItemSelected !important;            color: bgContainer !important; } \
       /*fix columns field selector for Zotero 6*/\
       #zotero-items-tree .virtualized-table-header { -moz-appearance: none !important;\
         background: bgItemDefault !important;\
