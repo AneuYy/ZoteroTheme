@@ -68,7 +68,7 @@ class Theme {
       var data_css = data_css
         .split(settingName)
         .join(currentTheme.settings[settingName]);
-      if (currentTheme.settings[settingName] == "#ffffff") {
+      if (currentTheme.settings[settingName] == "") {
         numDefault = numDefault + 1;
       }
     }

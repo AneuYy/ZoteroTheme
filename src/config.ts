@@ -555,24 +555,24 @@ class AddonConfig extends AddonBase {
       new Theme(
         "dark",
         {
-          bgBlank: "#ffffff",
-          bgContainer: "#ffffff",
-          bgBorder: "#ffffff",
-          bgItemDefault: "#ffffff",
-          bgItemHover: "#ffffff",
-          bgItemSelected: "#ffffff",
+          bgBlank: "#323234",
+          bgContainer: "#FFFFFF",
+          bgBorder: "#1d1d1d",
+          bgItemDefault: "#474749",
+          bgItemHover: "#BBCEF1",
+          bgItemSelected: "#474749",
         },
         "win"
       ),
       new Theme(
         "default",
         {
-          bgBlank: "#ffffff",
-          bgContainer: "#ffffff",
-          bgBorder: "#ffffff",
-          bgItemDefault: "#ffffff",
-          bgItemHover: "#ffffff",
-          bgItemSelected: "#ffffff",
+          bgBlank: "",
+          bgContainer: "",
+          bgBorder: "",
+          bgItemDefault: "",
+          bgItemHover: "",
+          bgItemSelected: "",
         },
         ""
       ),
