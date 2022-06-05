@@ -76,6 +76,9 @@ class Theme {
       var data_css = "";
     }
     await Zotero.File.putContentsAsync(csspath, data_css);
+    //pdf
+
+    //pdf
     let doRestart = confirm("Restart Zotero to apply. Restart now?");
     if (doRestart) {
       Zotero.Utilities.Internal.quitZotero(true);

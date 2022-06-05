@@ -4,7 +4,7 @@
  * @Author: ShareStuff
  * @Date: 2022-04-26 11:31:41
  * @LastEditors: isharestuff
- * @LastEditTime: 2022-04-27 10:36:46
+ * @LastEditTime: 2022-06-05 19:04:57
  */
 import { AddonBase } from "./base";
 
@@ -15,7 +15,6 @@ class AddonEvents extends AddonBase {
 
   public async onInit() {
     Zotero.debug("ZoteroTheme: init called");
-
     this.resetState();
   }
 

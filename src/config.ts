@@ -561,6 +561,7 @@ class AddonConfig extends AddonBase {
           bgItemDefault: "#474749",
           bgItemHover: "#BBCEF1",
           bgItemSelected: "#474749",
+          bgPdf: "#9bbd85",
         },
         "win"
       ),
@@ -573,6 +574,7 @@ class AddonConfig extends AddonBase {
           bgItemDefault: "",
           bgItemHover: "",
           bgItemSelected: "",
+          bgPdf: "#9bbd85",
         },
         ""
       ),
@@ -585,6 +587,7 @@ class AddonConfig extends AddonBase {
         bgItemDefault: "Item Default",
         bgItemHover: "Item Hover",
         bgItemSelected: "Item Selected",
+        bgPdf: "PDF Background",
       },
       zh: {
         bgBlank: "空背景",
@@ -593,6 +596,7 @@ class AddonConfig extends AddonBase {
         bgItemDefault: "默认元素",
         bgItemHover: "聚焦元素",
         bgItemSelected: "选择元素",
+        bgPdf: "PDF 背景颜色",
       },
     };
   }

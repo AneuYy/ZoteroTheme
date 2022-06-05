@@ -3,8 +3,8 @@
  * @version: 1.0
  * @Author: ingopro
  * @Date: 2022-04-24 22:08:23
- * @LastEditors: ZYG
- * @LastEditTime: 2022-04-26 12:36:20
+ * @LastEditors: isharestuff
+ * @LastEditTime: 2022-06-05 19:31:26
 -->
 # ZoteroTheme
 
@@ -28,6 +28,8 @@ Zotero 主题
 ## Development & Contributing
 
 This add-on is built on the Zotero Addon Template of [zotero-pdf-translate](https://github.com/windingwind/zotero-pdf-translate).
+
+Moreover, this add-on add utility with the help of [Zotero PDF Background Plugin](https://github.com/q77190858/zotero-pdf-background).
 
 ## Disclaimer
 
